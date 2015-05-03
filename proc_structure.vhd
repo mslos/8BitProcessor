@@ -88,19 +88,73 @@ component Memory8x8 is
 end component;
 
 -- *** Declare Signals conecting the Blocks ***
-signal Rs1_addr, Rs2_addr, Rd_addr : STD_LOGIC_VECTOR (2 downto 0);	--Addresses of arguments and output
+signal Rs1_address, Rs2_address, Rd_address : STD_LOGIC_VECTOR (2 downto 0);	--Addresses of arguments and output
 signal halt, branch, wrt : STD_LOGIC;											--Control signals
-signal opcode : STD_LOGIC (3 downto 0);										--Operation code (4-bit)
+signal op_code : STD_LOGIC (3 downto 0);										--Operation code (4-bit)
 signal offset, address, instruction : STD_LOGIC_VECTOR (7 downto 0);	--Offset (argument), address of next instruction, content of instruction
 signal Rs1_cont, Rs2_cont, Rd_cont : STD_LOGIC_VECTOR (7 downto 0);	--Content of arguments and output
 
 begin
 
+-- *** Outputs to the display ***
 Rs1_out <= Rs1_cont;
 Rs2_out <= Rs2_cont;
 Rd_out <= Rs_cont;
 PC_out <= address;
 
+-- *** Inputs from buttons used for debugging ***
+
+-- *** Signal Mapping for Each Component ***
+
+
+Program_Counter: ProgramCounter PORT MAP(
+	offset => offset,
+	halt => halt,
+	branch => branch,
+	clk => clk,
+	rst => reset,
+	nextaddress => address
+	);
+	
+Program_Register : ROM256 PORT MAP(
+	address => address,
+	instruction => instruction,
+	clk => clk
+	);
+
+Decode_Unit : decoder PORT MAP(
+	op_code => opcode,
+	offset => offset,
+	instruction => instruction,
+	Rs1_addr => Rs1_address,
+	Rs2_addr => Rs2_address,
+	Rd_addr => Rd_address,
+	halt => halt,
+	branch => branch,
+	wrt => wrt,
+	Rs1_cont => Rs1,
+	Rs2_cont => Rs2
+	);
+	
+ALU : alu PORT MAP(
+	Rs1_cont => Rs1,
+	Rs2_cont => Rs2,
+	Rd => Rd_cont,
+	offset => offset,
+	op_code => opcode
+	);
+	
+Register_File : Memory8x8 PORT MAP(
+	Rs1_address => Rs1_addr,
+   Rs2_address => Rs2_addr,
+   Rd_address => Rd_addr,
+   Rs1_cont => Rs1_cont,
+   Rs2_cont => Rs2_cont,
+   Rd_cont => Rd_cont,
+   wrt => wrt,
+   clk => Clk,
+   rst => Reset
+	);
 
 end Behavioral;
 
