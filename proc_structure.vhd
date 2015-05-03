@@ -19,6 +19,8 @@
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 entity proc_structure is
 
@@ -90,17 +92,18 @@ end component;
 -- *** Declare Signals conecting the Blocks ***
 signal Rs1_address, Rs2_address, Rd_address : STD_LOGIC_VECTOR (2 downto 0);	--Addresses of arguments and output
 signal halt, branch, wrt : STD_LOGIC;											--Control signals
-signal op_code : STD_LOGIC (3 downto 0);										--Operation code (4-bit)
-signal offset, address, instruction : STD_LOGIC_VECTOR (7 downto 0);	--Offset (argument), address of next instruction, content of instruction
+signal op_code : STD_LOGIC_VECTOR (3 downto 0);								--Operation code (4-bit)
+signal offset, address : STD_LOGIC_VECTOR (7 downto 0);					--Offset (argument), address of next instruction
 signal Rs1_cont, Rs2_cont, Rd_cont : STD_LOGIC_VECTOR (7 downto 0);	--Content of arguments and output
 signal Rs1_address_temp : STD_LOGIC_VECTOR (2 downto 0); 				--Temporary holder for Rs1 used for debug
+signal instruction : STD_LOGIC_VECTOR (15 downto 0);						--Content of the instruction
 
 begin
 
 -- *** Outputs to the display ***
 Rs1_out <= Rs1_cont;
 Rs2_out <= Rs2_cont;
-Rd_out <= Rs_cont;
+Rd_out <= Rd_cont;
 PC_out <= address;
 
 -- *** Inputs from buttons used for debugging ***
@@ -120,7 +123,7 @@ Program_Counter: ProgramCounter PORT MAP(
 	halt => halt,
 	branch => branch,
 	clk => clk,
-	rst => reset,
+	reset => rst,
 	nextaddress => address
 	);
 	
@@ -131,7 +134,7 @@ Program_Register : ROM256 PORT MAP(
 	);
 
 Decode_Unit : decoder PORT MAP(
-	op_code => opcode,
+	opcode => op_code,
 	offset => offset,
 	instruction => instruction,
 	Rs1_addr => Rs1_address_temp, --using temporary holder so that Rs1 display can be switched to debug
@@ -140,13 +143,13 @@ Decode_Unit : decoder PORT MAP(
 	halt => halt,
 	branch => branch,
 	wrt => wrt,
-	Rs1_cont => Rs1,
-	Rs2_cont => Rs2
+	Rs1 => Rs1_cont,
+	Rs2 => Rs2_cont
 	);
 	
 ALU : alu PORT MAP(
-	Rs1_cont => Rs1,
-	Rs2_cont => Rs2,
+	Rs1_cont => Rs1_cont,
+	Rs2_cont => Rs2_cont,
 	Rd => Rd_cont,
 	offset => offset,
 	op_code => opcode
