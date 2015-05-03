@@ -147,24 +147,24 @@ Decode_Unit : decoder PORT MAP(
 	Rs2 => Rs2_cont
 	);
 	
-ALU : alu PORT MAP(
-	Rs1_cont => Rs1_cont,
-	Rs2_cont => Rs2_cont,
+ALU_instance : alu PORT MAP(
+	Rs1 => Rs1_cont,
+	Rs2 => Rs2_cont,
 	Rd => Rd_cont,
 	offset => offset,
-	op_code => opcode
+	opcode => op_code
 	);
 	
 Register_File : Memory8x8 PORT MAP(
-	Rs1_address => Rs1_addr,
-   Rs2_address => Rs2_addr,
-   Rd_address => Rd_addr,
+	Rs1_addr => Rs1_address,
+   Rs2_addr => Rs2_address,
+   Rd_addr => Rd_address,
    Rs1_cont => Rs1_cont,
    Rs2_cont => Rs2_cont,
    Rd_cont => Rd_cont,
    wrt => wrt,
    clk => Clk,
-   rst => Reset
+   Reset => rst
 	);
 
 end Behavioral;

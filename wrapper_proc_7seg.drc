@@ -1,7 +1,7 @@
 Release 14.7 Drc P.20131013 (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-Sun May 03 15:11:36 2015
+Sun May 03 22:48:40 2015
 
 drc -z wrapper_proc_7seg.ncd wrapper_proc_7seg.pcf
 

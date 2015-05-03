@@ -20,14 +20,7 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx primitives in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
+-- *** Important: Display shows hex-in (find below) ***
 
 entity wrapper_proc_7seg is
     Port ( clk : in  STD_LOGIC;
@@ -80,6 +73,13 @@ architecture Behavioral of wrapper_proc_7seg is
 	signal slow_clk: std_logic; 
 	
 	begin
+	
+-- *** Display shows content of Rs1, program counter direction and last fo-
+--		 ur bits of Rd
+-- *** If display button is HIGH, then Rs1 becomes determined by user input
+--		 and the user can check the content of the register. Must turn off bu-
+--		 tton before next clock cycle. UCF gives button mapping.
+
 	hex_in <=  Rs1_out(7 downto 0) & PC_out(3 downto 0) & Rd_out(3 downto 0); -- & Rs2_out(3 downto 0); PC_out(3 downto 0) & Rd_out(3 downto 0)
 		
 	Inst_top_processor: proc_structure PORT MAP(

@@ -45,11 +45,11 @@ Setup/Hold to clock btn
             |Max Setup to|Max Hold to |                  | Clock  |
 Source      | clk (edge) | clk (edge) |Internal Clock(s) | Phase  |
 ------------+------------+------------+------------------+--------+
-display     |   18.682(R)|   -3.634(R)|btn_BUFGP         |   0.000|
-reg_no<0>   |   18.505(R)|   -3.532(R)|btn_BUFGP         |   0.000|
-reg_no<1>   |   19.467(R)|   -5.053(R)|btn_BUFGP         |   0.000|
-reg_no<2>   |   17.817(R)|   -4.238(R)|btn_BUFGP         |   0.000|
-rst         |    6.791(R)|    0.545(R)|btn_BUFGP         |   0.000|
+display     |   13.994(R)|   -3.675(R)|btn_BUFGP         |   0.000|
+reg_no<0>   |   13.353(R)|   -3.958(R)|btn_BUFGP         |   0.000|
+reg_no<1>   |   11.428(R)|   -4.049(R)|btn_BUFGP         |   0.000|
+reg_no<2>   |   10.971(R)|   -3.336(R)|btn_BUFGP         |   0.000|
+rst         |    3.389(R)|    0.159(R)|btn_BUFGP         |   0.000|
 ------------+------------+------------+------------------+--------+
 
 Clock btn to Pad
@@ -57,13 +57,13 @@ Clock btn to Pad
             | clk (edge) |                  | Clock  |
 Destination |   to PAD   |Internal Clock(s) | Phase  |
 ------------+------------+------------------+--------+
-seg<0>      |   27.900(R)|btn_BUFGP         |   0.000|
-seg<1>      |   28.197(R)|btn_BUFGP         |   0.000|
-seg<2>      |   29.013(R)|btn_BUFGP         |   0.000|
-seg<3>      |   28.907(R)|btn_BUFGP         |   0.000|
-seg<4>      |   28.737(R)|btn_BUFGP         |   0.000|
-seg<5>      |   28.702(R)|btn_BUFGP         |   0.000|
-seg<6>      |   28.849(R)|btn_BUFGP         |   0.000|
+seg<0>      |   24.357(R)|btn_BUFGP         |   0.000|
+seg<1>      |   24.356(R)|btn_BUFGP         |   0.000|
+seg<2>      |   23.858(R)|btn_BUFGP         |   0.000|
+seg<3>      |   24.212(R)|btn_BUFGP         |   0.000|
+seg<4>      |   24.825(R)|btn_BUFGP         |   0.000|
+seg<5>      |   24.358(R)|btn_BUFGP         |   0.000|
+seg<6>      |   24.909(R)|btn_BUFGP         |   0.000|
 ------------+------------+------------------+--------+
 
 Clock to Setup on destination clock btn
@@ -71,7 +71,7 @@ Clock to Setup on destination clock btn
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-btn            |   19.619|         |         |         |
+btn            |   14.693|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock clk
@@ -79,45 +79,45 @@ Clock to Setup on destination clock clk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |    4.971|         |         |         |
+clk            |    4.920|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 Pad to Pad
 ---------------+---------------+---------+
 Source Pad     |Destination Pad|  Delay  |
 ---------------+---------------+---------+
-display        |seg<0>         |   26.394|
-display        |seg<1>         |   26.691|
-display        |seg<2>         |   27.507|
-display        |seg<3>         |   27.401|
-display        |seg<4>         |   27.231|
-display        |seg<5>         |   27.196|
-display        |seg<6>         |   27.343|
-reg_no<0>      |seg<0>         |   26.217|
-reg_no<0>      |seg<1>         |   26.514|
-reg_no<0>      |seg<2>         |   27.330|
-reg_no<0>      |seg<3>         |   27.224|
-reg_no<0>      |seg<4>         |   27.054|
-reg_no<0>      |seg<5>         |   27.019|
-reg_no<0>      |seg<6>         |   27.166|
-reg_no<1>      |seg<0>         |   27.179|
-reg_no<1>      |seg<1>         |   27.476|
-reg_no<1>      |seg<2>         |   28.292|
-reg_no<1>      |seg<3>         |   28.186|
-reg_no<1>      |seg<4>         |   28.016|
-reg_no<1>      |seg<5>         |   27.981|
-reg_no<1>      |seg<6>         |   28.128|
-reg_no<2>      |seg<0>         |   25.529|
-reg_no<2>      |seg<1>         |   25.826|
-reg_no<2>      |seg<2>         |   26.642|
-reg_no<2>      |seg<3>         |   26.536|
-reg_no<2>      |seg<4>         |   26.366|
-reg_no<2>      |seg<5>         |   26.331|
-reg_no<2>      |seg<6>         |   26.478|
+display        |seg<0>         |   22.888|
+display        |seg<1>         |   22.887|
+display        |seg<2>         |   22.389|
+display        |seg<3>         |   22.743|
+display        |seg<4>         |   23.356|
+display        |seg<5>         |   22.889|
+display        |seg<6>         |   23.440|
+reg_no<0>      |seg<0>         |   22.482|
+reg_no<0>      |seg<1>         |   22.481|
+reg_no<0>      |seg<2>         |   21.983|
+reg_no<0>      |seg<3>         |   22.337|
+reg_no<0>      |seg<4>         |   22.950|
+reg_no<0>      |seg<5>         |   22.483|
+reg_no<0>      |seg<6>         |   23.034|
+reg_no<1>      |seg<0>         |   20.554|
+reg_no<1>      |seg<1>         |   20.553|
+reg_no<1>      |seg<2>         |   20.055|
+reg_no<1>      |seg<3>         |   20.409|
+reg_no<1>      |seg<4>         |   21.022|
+reg_no<1>      |seg<5>         |   20.555|
+reg_no<1>      |seg<6>         |   21.106|
+reg_no<2>      |seg<0>         |   19.567|
+reg_no<2>      |seg<1>         |   19.609|
+reg_no<2>      |seg<2>         |   19.257|
+reg_no<2>      |seg<3>         |   19.422|
+reg_no<2>      |seg<4>         |   20.089|
+reg_no<2>      |seg<5>         |   19.622|
+reg_no<2>      |seg<6>         |   20.133|
 ---------------+---------------+---------+
 
 
-Analysis completed Sun May 03 14:31:08 2015 
+Analysis completed Sun May 03 22:48:37 2015 
 --------------------------------------------------------------------------------
 
 Trace Settings:

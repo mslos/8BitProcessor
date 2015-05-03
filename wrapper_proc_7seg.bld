@@ -5,8 +5,7 @@ Command Line: C:\14.7\ISE_DS\ISE\bin\nt64\unwrapped\ngdbuild.exe -intstyle ise
 -dd _ngo -nt timestamp -uc Basys2_100_250General-2.ucf -p xc3s100e-cp132-4
 wrapper_proc_7seg.ngc wrapper_proc_7seg.ngd
 
-Reading NGO file "C:/Users/NYUAD/Desktop/nyuad_processor/wrapper_proc_7seg.ngc"
-...
+Reading NGO file "E:/processor/wrapper_proc_7seg.ngc" ...
 Gathering constraint information from source properties...
 Done.
 
@@ -28,10 +27,10 @@ NGDBUILD Design Results Summary:
   Number of errors:     0
   Number of warnings:   0
 
-Total memory usage is 161552 kilobytes
+Total memory usage is 160848 kilobytes
 
 Writing NGD file "wrapper_proc_7seg.ngd" ...
-Total REAL time to NGDBUILD completion:  3 sec
+Total REAL time to NGDBUILD completion:  4 sec
 Total CPU time to NGDBUILD completion:   3 sec
 
 Writing NGDBUILD log file "wrapper_proc_7seg.bld"...

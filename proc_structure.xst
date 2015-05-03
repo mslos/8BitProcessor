@@ -1,5 +1,5 @@
-set -tmpdir "E:/martin_processor/xst/projnav.tmp"
-set -xsthdpdir "E:/martin_processor/xst"
+set -tmpdir "E:/processor/xst/projnav.tmp"
+set -xsthdpdir "E:/processor/xst"
 elaborate
 -ifn proc_structure.prj
 -ifmt mixed
