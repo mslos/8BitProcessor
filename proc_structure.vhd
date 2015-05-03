@@ -27,7 +27,7 @@ Port (clk : in  STD_LOGIC;										--Common Clock
 		Rs1_out : out  STD_LOGIC_VECTOR (7 downto 0);	--Rs1 content to Display
 		Rs2_out : out  STD_LOGIC_VECTOR (7 downto 0);	--Rs2 content to Display
 		Rd_out : out  STD_LOGIC_VECTOR (7 downto 0);		--Rd content to Display
-		reg_no: in STD_LOGIC_VECTOR (2 downto 0);			--???
+		reg_no: in STD_LOGIC_VECTOR (2 downto 0);			--Register num to show on display
 	   display: in std_logic;  								--Is display on?
 		PC_out : out  STD_LOGIC_VECTOR (7 downto 0));	--Output of program counter
 
@@ -93,6 +93,7 @@ signal halt, branch, wrt : STD_LOGIC;											--Control signals
 signal op_code : STD_LOGIC (3 downto 0);										--Operation code (4-bit)
 signal offset, address, instruction : STD_LOGIC_VECTOR (7 downto 0);	--Offset (argument), address of next instruction, content of instruction
 signal Rs1_cont, Rs2_cont, Rd_cont : STD_LOGIC_VECTOR (7 downto 0);	--Content of arguments and output
+signal Rs1_address_temp : STD_LOGIC_VECTOR (2 downto 0); 				--Temporary holder for Rs1 used for debug
 
 begin
 
@@ -103,9 +104,16 @@ Rd_out <= Rs_cont;
 PC_out <= address;
 
 -- *** Inputs from buttons used for debugging ***
+process (display,  reg_no,  Rs1_address_temp) 
+	begin
+		if (display = '1') then 
+				Rs1_address <= reg_no;
+		else 
+				Rs1_address <= Rs1_address_temp;
+		end if; 
+	end process; 
 
 -- *** Signal Mapping for Each Component ***
-
 
 Program_Counter: ProgramCounter PORT MAP(
 	offset => offset,
@@ -126,7 +134,7 @@ Decode_Unit : decoder PORT MAP(
 	op_code => opcode,
 	offset => offset,
 	instruction => instruction,
-	Rs1_addr => Rs1_address,
+	Rs1_addr => Rs1_address_temp, --using temporary holder so that Rs1 display can be switched to debug
 	Rs2_addr => Rs2_address,
 	Rd_addr => Rd_address,
 	halt => halt,
