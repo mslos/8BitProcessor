@@ -4,7 +4,7 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.14 secs
+Total CPU time to Xst completion: 0.16 secs
  
 --> Parameter xsthdpdir set to xst
 
@@ -111,7 +111,8 @@ Architecture behavioral of Entity hex_to_7seg is up to date.
 Compiling vhdl file "//vboxsrv/desktop/processor/ProgramCounter.vhd" in Library work.
 Architecture behavioral of Entity programcounter is up to date.
 Compiling vhdl file "//vboxsrv/desktop/processor/RAM256.vhd" in Library work.
-Architecture behavioral of Entity rom256 is up to date.
+Entity <rom256> compiled.
+Entity <rom256> (Architecture <behavioral>) compiled.
 Compiling vhdl file "//vboxsrv/desktop/processor/decoder.vhd" in Library work.
 Architecture behavioral of Entity decoder is up to date.
 Compiling vhdl file "//vboxsrv/desktop/processor/alu.vhd" in Library work.
@@ -123,8 +124,7 @@ Architecture behavioral of Entity proc_structure is up to date.
 Compiling vhdl file "//vboxsrv/desktop/processor/seven_seg_multiplex.vhd" in Library work.
 Architecture behavioral of Entity seven_seg_multiplex is up to date.
 Compiling vhdl file "//vboxsrv/desktop/processor/wrapper_proc_7seg.vhd" in Library work.
-Entity <wrapper_proc_7seg> compiled.
-Entity <wrapper_proc_7seg> (Architecture <behavioral>) compiled.
+Architecture behavioral of Entity wrapper_proc_7seg is up to date.
 
 =========================================================================
 *                     Design Hierarchy Analysis                         *
@@ -145,6 +145,8 @@ Analyzing hierarchy for entity <ROM256> in library <work> (architecture <behavio
 Analyzing hierarchy for entity <decoder> in library <work> (architecture <behavioral>).
 
 Analyzing hierarchy for entity <alu> in library <work> (architecture <behavioral>).
+WARNING:Xst:790 - "//vboxsrv/desktop/processor/alu.vhd" line 35: Index value(s) does not match array range, simulation mismatch.
+WARNING:Xst:2094 - "//vboxsrv/desktop/processor/alu.vhd" line 35: Default value is ignored for signal <holder>.
 
 Analyzing hierarchy for entity <Memory8x8> in library <work> (architecture <behavioral>).
 
@@ -173,6 +175,8 @@ Analyzing Entity <decoder> in library <work> (Architecture <behavioral>).
 Entity <decoder> analyzed. Unit <decoder> generated.
 
 Analyzing Entity <alu> in library <work> (Architecture <behavioral>).
+WARNING:Xst:790 - "//vboxsrv/desktop/processor/alu.vhd" line 35: Index value(s) does not match array range, simulation mismatch.
+WARNING:Xst:2094 - "//vboxsrv/desktop/processor/alu.vhd" line 35: Default value is ignored for signal <holder>.
 Entity <alu> analyzed. Unit <alu> generated.
 
 Analyzing Entity <Memory8x8> in library <work> (Architecture <behavioral>).
@@ -219,7 +223,7 @@ Unit <ProgramCounter> synthesized.
 
 Synthesizing Unit <ROM256>.
     Related source file is "//vboxsrv/desktop/processor/RAM256.vhd".
-    Found 256x16-bit ROM for signal <instruction$rom0000> created at line 66.
+    Found 256x16-bit ROM for signal <instruction$rom0000> created at line 101.
     Found 16-bit register for signal <instruction>.
     Summary:
 	inferred   1 ROM(s).
@@ -230,9 +234,9 @@ Unit <ROM256> synthesized.
 Synthesizing Unit <decoder>.
     Related source file is "//vboxsrv/desktop/processor/decoder.vhd".
     Found 16x1-bit ROM for signal <wrt>.
-    Found 8-bit comparator equal for signal <branch$cmp_eq0003> created at line 84.
-    Found 8-bit comparator less for signal <branch$cmp_lt0000> created at line 84.
-    Found 8-bit comparator not equal for signal <branch$cmp_ne0000> created at line 84.
+    Found 8-bit comparator equal for signal <branch$cmp_eq0003> created at line 85.
+    Found 8-bit comparator less for signal <branch$cmp_lt0000> created at line 85.
+    Found 8-bit comparator not equal for signal <branch$cmp_ne0000> created at line 85.
     Summary:
 	inferred   1 ROM(s).
 	inferred   3 Comparator(s).
@@ -241,9 +245,10 @@ Unit <decoder> synthesized.
 
 Synthesizing Unit <alu>.
     Related source file is "//vboxsrv/desktop/processor/alu.vhd".
+WARNING:Xst:653 - Signal <holder> is used but never assigned. This sourceless signal will be automatically connected to value 0.
     Found 8-bit addsub for signal <Rd$addsub0000>.
-    Found 8-bit shifter logical left for signal <Rd$shift0004> created at line 46.
-    Found 8-bit shifter arithmetic right for signal <Rd$shift0005> created at line 46.
+    Found 8-bit shifter logical left for signal <Rd$shift0004> created at line 39.
+    Found 8-bit shifter arithmetic right for signal <Rd$shift0005> created at line 39.
     Summary:
 	inferred   1 Adder/Subtractor(s).
 	inferred   2 Combinational logic shifter(s).
@@ -457,20 +462,21 @@ Design Statistics
 # IOs                              : 18
 
 Cell Usage :
-# BELS                             : 484
+# BELS                             : 479
 #      GND                         : 1
 #      INV                         : 3
 #      LUT1                        : 31
-#      LUT2                        : 18
-#      LUT2_D                      : 2
-#      LUT3                        : 97
-#      LUT3_D                      : 2
+#      LUT2                        : 17
+#      LUT2_D                      : 3
+#      LUT2_L                      : 1
+#      LUT3                        : 96
+#      LUT3_D                      : 1
 #      LUT3_L                      : 6
-#      LUT4                        : 126
-#      LUT4_D                      : 9
-#      LUT4_L                      : 18
+#      LUT4                        : 124
+#      LUT4_D                      : 10
+#      LUT4_L                      : 19
 #      MUXCY                       : 61
-#      MUXF5                       : 45
+#      MUXF5                       : 41
 #      MUXF6                       : 16
 #      VCC                         : 1
 #      XORCY                       : 48
@@ -493,9 +499,9 @@ Device utilization summary:
 
 Selected Device : 3s100ecp132-4 
 
- Number of Slices:                      168  out of    960    17%  
+ Number of Slices:                      164  out of    960    17%  
  Number of Slice Flip Flops:            107  out of   1920     5%  
- Number of 4 input LUTs:                312  out of   1920    16%  
+ Number of 4 input LUTs:                311  out of   1920    16%  
  Number of IOs:                          18
  Number of bonded IOBs:                  18  out of     83    21%  
  Number of BRAMs:                         1  out of      4    25%  
@@ -604,7 +610,7 @@ Delay:               3.023ns (Levels of Logic = 1)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'btn'
   Clock period: 15.011ns (frequency: 66.618MHz)
-  Total number of paths / destination ports: 75131 / 152
+  Total number of paths / destination ports: 74603 / 152
 -------------------------------------------------------------------------
 Delay:               15.011ns (Levels of Logic = 21)
   Source:            Inst_top_processor/Program_Register/Mrom_instruction_rom0000 (RAM)
@@ -627,7 +633,7 @@ Delay:               15.011ns (Levels of Logic = 21)
      MUXCY:CI->O           1   0.059   0.000  Inst_top_processor/Decode_Unit/Mcompar_branch_cmp_lt0000_cy<5> (Inst_top_processor/Decode_Unit/Mcompar_branch_cmp_lt0000_cy<5>)
      MUXCY:CI->O           1   0.059   0.000  Inst_top_processor/Decode_Unit/Mcompar_branch_cmp_lt0000_cy<6> (Inst_top_processor/Decode_Unit/Mcompar_branch_cmp_lt0000_cy<6>)
      MUXCY:CI->O           3   0.459   0.706  Inst_top_processor/Decode_Unit/Mcompar_branch_cmp_lt0000_cy<7> (Inst_top_processor/Decode_Unit/Mcompar_branch_cmp_lt0000_cy<7>)
-     LUT4:I0->O            1   0.704   0.000  Inst_top_processor/Decode_Unit/branch_F (N125)
+     LUT4:I0->O            1   0.704   0.000  Inst_top_processor/Decode_Unit/branch_F (N110)
      MUXF5:I0->O           8   0.321   0.761  Inst_top_processor/Decode_Unit/branch (Inst_top_processor/branch)
      LUT4:I3->O            1   0.704   0.000  Inst_top_processor/Program_Counter/Maccum_curnum_lut<0> (Inst_top_processor/Program_Counter/Maccum_curnum_lut<0>)
      MUXCY:S->O            1   0.464   0.000  Inst_top_processor/Program_Counter/Maccum_curnum_cy<0> (Inst_top_processor/Program_Counter/Maccum_curnum_cy<0>)
@@ -667,7 +673,7 @@ Offset:              13.829ns (Levels of Logic = 22)
      MUXCY:CI->O           1   0.059   0.000  Inst_top_processor/Decode_Unit/Mcompar_branch_cmp_lt0000_cy<5> (Inst_top_processor/Decode_Unit/Mcompar_branch_cmp_lt0000_cy<5>)
      MUXCY:CI->O           1   0.059   0.000  Inst_top_processor/Decode_Unit/Mcompar_branch_cmp_lt0000_cy<6> (Inst_top_processor/Decode_Unit/Mcompar_branch_cmp_lt0000_cy<6>)
      MUXCY:CI->O           3   0.459   0.706  Inst_top_processor/Decode_Unit/Mcompar_branch_cmp_lt0000_cy<7> (Inst_top_processor/Decode_Unit/Mcompar_branch_cmp_lt0000_cy<7>)
-     LUT4:I0->O            1   0.704   0.000  Inst_top_processor/Decode_Unit/branch_F (N125)
+     LUT4:I0->O            1   0.704   0.000  Inst_top_processor/Decode_Unit/branch_F (N110)
      MUXF5:I0->O           8   0.321   0.761  Inst_top_processor/Decode_Unit/branch (Inst_top_processor/branch)
      LUT4:I3->O            1   0.704   0.000  Inst_top_processor/Program_Counter/Maccum_curnum_lut<0> (Inst_top_processor/Program_Counter/Maccum_curnum_lut<0>)
      MUXCY:S->O            1   0.464   0.000  Inst_top_processor/Program_Counter/Maccum_curnum_cy<0> (Inst_top_processor/Program_Counter/Maccum_curnum_cy<0>)
@@ -773,14 +779,14 @@ Delay:               16.820ns (Levels of Logic = 16)
 =========================================================================
 
 
-Total REAL time to Xst completion: 8.00 secs
-Total CPU time to Xst completion: 8.31 secs
+Total REAL time to Xst completion: 9.00 secs
+Total CPU time to Xst completion: 9.08 secs
  
 --> 
 
-Total memory usage is 283248 kilobytes
+Total memory usage is 283440 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :    7 (   0 filtered)
+Number of warnings :   12 (   0 filtered)
 Number of infos    :    4 (   0 filtered)
 

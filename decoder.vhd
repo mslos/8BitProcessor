@@ -77,6 +77,7 @@ begin
 		offset4 when "1101",
 		offset4 when "1110",
 		offset4 when "1111",
+		offset3 when "1011",
 		"00000000" when others;
 		
 	halt <= '1' when (opcode= "1010" and Rs1 < Rs2) else
@@ -99,7 +100,7 @@ begin
 		'1' when "1000", -- 
 		'1' when "1001", -- Arithmetic/Logical end
 		'0' when "1010", -- HALT
-		'0' when "1011", -- custom operation to be implemented
+		'1' when "1011", -- custom operation to be implemented
 		'0' when "1100", --JMP
 		'0' when "1101", -- BLT
 		'0' when "1110", -- BE		

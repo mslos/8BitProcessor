@@ -22,14 +22,6 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx primitives in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
 
 entity alu is
     Port ( Rs1 : in  STD_LOGIC_VECTOR (7 downto 0);
@@ -40,22 +32,23 @@ entity alu is
 end alu;
 
 architecture Behavioral of alu is
+signal holder : std_logic := (Rs1(to_integer(unsigned(offset))));
 begin
 
 
 	with opcode select Rd <=
-			(Rs1+Rs2) when "0000",
-			(Rs1-Rs2) when "0001",
-			(Rs1+offset) when "0010",
-			(Rs1-offset) when "0011",
-			(Rs1 and Rs2) when "0100",
-			(Rs1 or Rs2) when "0101",
-			(Rs1 and offset) when "0110",
-			(Rs1 or offset) when "0111",
-			to_stdlogicvector((to_bitvector(Rs1) sll to_integer(unsigned(offset)))) when "1000",
-			to_stdlogicvector((to_bitvector(Rs1) sra to_integer(unsigned(offset)))) when "1001",
+			(Rs1+Rs2) when "0000", -- Addition
+			(Rs1-Rs2) when "0001", -- Subtraction
+			(Rs1+offset) when "0010", -- Add Immediate
+			(Rs1-offset) when "0011", -- Sub Immediate
+			(Rs1 and Rs2) when "0100", -- Bitwise AND
+			(Rs1 or Rs2) when "0101", -- Bitwise OR
+			(Rs1 and offset) when "0110", -- Immediate Bitwise AND
+			(Rs1 or offset) when "0111", -- Imediate Bitwise OR
+			to_stdlogicvector((to_bitvector(Rs1) sll to_integer(unsigned(offset)))) when "1000", -- Shift left
+			to_stdlogicvector((to_bitvector(Rs1) sra to_integer(unsigned(offset)))) when "1001", -- Shift right
+			"0000" &holder&holder&holder&holder when "1011", -- Extra Operation - choose one element
 			"00000000" when others;
-	
 
 end Behavioral;
 
