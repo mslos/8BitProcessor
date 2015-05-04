@@ -32,7 +32,8 @@ architecture Behavioral of ROM256 is
 
 type rom_type is array (0 to 255) of std_logic_vector(15 downto 0);
 constant rom : rom_type := (
-X"ABCD", X"AAAA", X"0000", X"ABCD", X"ABCD", X"ABCD", X"ABCD", X"ABCD", X"ABCD", X"ABCD", X"ABCD",
+---X"2248", X"2490", X"124A", X"149E", X"E243", X"06D0", X"B900", X"3241", X"C03C", X"C00F", X"A000",
+X"2207", X"2408", X"0050", X"A000", X"ABCD", X"ABCD", X"ABCD", X"ABCD", X"ABCD", X"ABCD", X"ABCD",
 X"ABCD", X"ABCD", X"ABCD", X"ABCD", X"ABCD", X"ABCD", X"ABCD", X"ABCD", X"ABCD", X"ABCD", X"ABCD",
 X"ABCD", X"ABCD", X"ABCD", X"ABCD", X"ABCD", X"ABCD", X"ABCD", X"ABCD", X"ABCD", X"ABCD", X"ABCD",
 X"ABCD", X"ABCD", X"ABCD", X"ABCD", X"ABCD", X"ABCD", X"ABCD", X"ABCD", X"ABCD", X"ABCD", X"ABCD",

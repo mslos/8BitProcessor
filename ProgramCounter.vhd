@@ -46,7 +46,7 @@ begin
 		if reset = '1' then curnum <= "00000000";
 		elsif halt = '1' then curnum <= curnum;
 		elsif branch = '1' then curnum <= curnum+offset;
-		else curnum<= curnum+"00000001";
+		else curnum<= curnum+1;
 		end if;
 	end if;
 end process;

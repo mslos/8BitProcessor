@@ -53,7 +53,7 @@ architecture Behavioral of wrapper_proc_7seg is
 		Rd_out : OUT std_logic_vector(7 downto 0);
 		 reg_no: in STD_LOGIC_VECTOR (2 downto 0);
 			  display: in std_logic;  
-
+		hlt : out STD_LOGIC;
 		 PC_out : out  STD_LOGIC_VECTOR (7 downto 0)
 		);
 	END COMPONENT;
@@ -70,7 +70,7 @@ architecture Behavioral of wrapper_proc_7seg is
 
 	signal Rs1_out, Rs2_out, Rd_out, PC_out :  std_logic_vector(7 downto 0) ;  
 	signal hex_in :  std_logic_vector(15 downto 0) ; 
-	signal slow_clk: std_logic; 
+	signal slow_clk, hlt: std_logic; 
 	
 	begin
 	
@@ -80,7 +80,7 @@ architecture Behavioral of wrapper_proc_7seg is
 --		 and the user can check the content of the register. Must turn off bu-
 --		 tton before next clock cycle. UCF gives button mapping.
 
-	hex_in <=  Rs1_out(7 downto 0) & PC_out(3 downto 0) & Rd_out(3 downto 0); -- & Rs2_out(3 downto 0); PC_out(3 downto 0) & Rd_out(3 downto 0)
+	hex_in <=  Rs1_out(7 downto 0) & PC_out(3 downto 0) & ("000" & hlt); -- & Rs2_out(3 downto 0); PC_out(3 downto 0) & Rd_out(3 downto 0)
 		
 	Inst_top_processor: proc_structure PORT MAP(
 		clk => btn , ---slow_clk,
@@ -90,7 +90,8 @@ architecture Behavioral of wrapper_proc_7seg is
 		Rd_out => Rd_out,
 		reg_no => reg_no, 
 		display => display, 
-		PC_out => PC_out
+		PC_out => PC_out,
+		hlt => hlt
 	);
 	
 	Inst_seven_seg_multiplex: seven_seg_multiplex PORT MAP(

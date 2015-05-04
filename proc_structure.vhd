@@ -31,8 +31,8 @@ Port (clk : in  STD_LOGIC;										--Common Clock
 		Rd_out : out  STD_LOGIC_VECTOR (7 downto 0);		--Rd content to Display
 		reg_no: in STD_LOGIC_VECTOR (2 downto 0);			--Register num to show on display
 	   display: in std_logic;  								--Is display on?
-		PC_out : out  STD_LOGIC_VECTOR (7 downto 0));	--Output of program counter
-
+		PC_out : out  STD_LOGIC_VECTOR (7 downto 0);	--Output of program counter
+		hlt : out STD_LOGIC);
 end proc_structure;
 
 architecture Behavioral of proc_structure is
@@ -105,6 +105,7 @@ Rs1_out <= Rs1_cont;
 Rs2_out <= Rs2_cont;
 Rd_out <= Rd_cont;
 PC_out <= address;
+hlt <= halt;
 
 -- *** Inputs from buttons used for debugging ***
 process (display,  reg_no,  Rs1_address_temp) 
