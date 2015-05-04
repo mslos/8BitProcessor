@@ -1,0 +1,7 @@
+vhdl work "RAM256.vhd"
+vhdl work "ProgramCounter.vhd"
+vhdl work "Memory8x8.vhd"
+vhdl work "decoder.vhd"
+vhdl work "alu.vhd"
+vhdl work "proc_structure.vhd"
+vhdl work "tb_proc.vhd"

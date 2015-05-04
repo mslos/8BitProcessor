@@ -1,0 +1,6 @@
+work	"Memory8x8.vhd"
+work	"ProgramCounter.vhd"
+work	"RAM256.vhd"
+work	"alu.vhd"
+work	"decoder.vhd"
+work	"proc_structure.vhd"

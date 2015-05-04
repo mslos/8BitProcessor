@@ -1,0 +1,31 @@
+Running: fuse.exe -relaunch -intstyle "ise" -incremental -o "E:/processor/tb_proc_isim_beh.exe" -prj "E:/processor/tb_proc_beh.prj" "work.tb_proc" 
+ISim P.20131013 (signature 0x7708f090)
+Number of CPUs detected in this system: 1
+Turning on mult-threading, number of parallel sub-compilation jobs: 0 
+Determining compilation order of HDL files
+Parsing VHDL file "E:/processor/RAM256.vhd" into library work
+Parsing VHDL file "E:/processor/ProgramCounter.vhd" into library work
+Parsing VHDL file "E:/processor/Memory8x8.vhd" into library work
+Parsing VHDL file "E:/processor/decoder.vhd" into library work
+Parsing VHDL file "E:/processor/alu.vhd" into library work
+Parsing VHDL file "E:/processor/proc_structure.vhd" into library work
+Parsing VHDL file "E:/processor/tb_proc.vhd" into library work
+Starting static elaboration
+Completed static elaboration
+Compiling package standard
+Compiling package std_logic_1164
+Compiling package std_logic_arith
+Compiling package std_logic_unsigned
+Compiling package numeric_std
+Compiling architecture behavioral of entity ProgramCounter [programcounter_default]
+Compiling architecture behavioral of entity ROM256 [rom256_default]
+Compiling architecture behavioral of entity decoder [decoder_default]
+Compiling architecture behavioral of entity alu [alu_default]
+Compiling architecture behavioral of entity Memory8x8 [memory8x8_default]
+Compiling architecture behavioral of entity proc_structure [proc_structure_default]
+Compiling architecture behavior of entity tb_proc
+Time Resolution for simulation is 1ps.
+Compiled 18 VHDL Units
+Built simulation executable E:/processor/tb_proc_isim_beh.exe
+Fuse Memory Usage: 37328 KB
+Fuse CPU Usage: 687 ms
