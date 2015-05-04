@@ -80,7 +80,7 @@ architecture Behavioral of wrapper_proc_7seg is
 --		 and the user can check the content of the register. Must turn off bu-
 --		 tton before next clock cycle. UCF gives button mapping.
 
-	hex_in <=  Rs1_out(7 downto 0) & PC_out(3 downto 0) & ("000" & hlt); -- & Rs2_out(3 downto 0); PC_out(3 downto 0) & Rd_out(3 downto 0)
+	hex_in <=  Rs1_out(7 downto 0) & PC_out(3 downto 0) & Rd_out(3 downto 0); -- & Rs2_out(3 downto 0); PC_out(3 downto 0) & Rd_out(3 downto 0)
 		
 	Inst_top_processor: proc_structure PORT MAP(
 		clk => btn , ---slow_clk,

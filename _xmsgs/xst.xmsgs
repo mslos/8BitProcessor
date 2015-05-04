@@ -8,13 +8,19 @@
 <msg type="warning" file="Xst" num="790" delta="old" >&quot;<arg fmt="%s" index="1">//vboxsrv/desktop/processor/alu.vhd</arg>&quot; line <arg fmt="%d" index="2">37</arg>: Index value(s) does not match array range, simulation mismatch.
 </msg>
 
+<msg type="info" file="Xst" num="1561" delta="new" >&quot;<arg fmt="%s" index="1">//vboxsrv/desktop/processor/hex_to_7seg.vhd</arg>&quot; line <arg fmt="%d" index="2">57</arg>: Mux is complete : default of case is discarded
+</msg>
+
 <msg type="warning" file="Xst" num="646" delta="old" >Signal &lt;<arg fmt="%s" index="1">slow_clk</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="old" >Signal &lt;<arg fmt="%s" index="1">hlt</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 </msg>
 
 <msg type="warning" file="Xst" num="646" delta="old" >Signal &lt;<arg fmt="%s" index="1">Rs2_out</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="646" delta="old" >Signal &lt;<arg fmt="%s" index="1">Rd_out</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="646" delta="old" >Signal &lt;<arg fmt="%s" index="1">Rd_out&lt;7:4&gt;</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 </msg>
 
 <msg type="warning" file="Xst" num="646" delta="old" >Signal &lt;<arg fmt="%s" index="1">PC_out&lt;7:4&gt;</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.

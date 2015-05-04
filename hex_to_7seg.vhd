@@ -39,20 +39,21 @@ begin
 		process (hex_nibble)
 		begin
 			case hex_nibble is
+				when "0000" => seven_seg_output <= "1000000";
 				when "0001" => seven_seg_output <= "1111001";
 				when "0010" => seven_seg_output <= "0100100";
 				when "0011" => seven_seg_output <= "0110000";
 				when "0100" => seven_seg_output <= "0011001";
 				when "0101" => seven_seg_output <= "0010010";
 				when "0110" => seven_seg_output <= "0000010";
-				when "0111" => seven_seg_output <= "1111000";
+				when "0111" => seven_seg_output <= "1011000";
 				when "1000" => seven_seg_output <= "0000000";
-				when "1001" => seven_seg_output <= "1111000";
+				when "1001" => seven_seg_output <= "0010000";
 				when "1010" => seven_seg_output <= "0001000";
-				when "1011" => seven_seg_output <= "0010011";
+				when "1011" => seven_seg_output <= "0000011";
 				when "1100" => seven_seg_output <= "1000110";
-				when "1101" => seven_seg_output <= "0010001";
-				when "1110" => seven_seg_output <= "0000100";
+				when "1101" => seven_seg_output <= "0100001";
+				when "1110" => seven_seg_output <= "0000110";
 				when "1111" => seven_seg_output <= "0001110";
 				when others => seven_seg_output <= "1000000";
 			end case;
