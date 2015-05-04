@@ -3,14 +3,14 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.16 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.23 secs
  
 --> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.16 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.23 secs
  
 --> Reading design: wrapper_proc_7seg.prj
 
@@ -145,8 +145,6 @@ Analyzing hierarchy for entity <ROM256> in library <work> (architecture <behavio
 Analyzing hierarchy for entity <decoder> in library <work> (architecture <behavioral>).
 
 Analyzing hierarchy for entity <alu> in library <work> (architecture <behavioral>).
-WARNING:Xst:790 - "//vboxsrv/desktop/processor/alu.vhd" line 35: Index value(s) does not match array range, simulation mismatch.
-WARNING:Xst:2094 - "//vboxsrv/desktop/processor/alu.vhd" line 35: Default value is ignored for signal <holder>.
 
 Analyzing hierarchy for entity <Memory8x8> in library <work> (architecture <behavioral>).
 
@@ -175,8 +173,7 @@ Analyzing Entity <decoder> in library <work> (Architecture <behavioral>).
 Entity <decoder> analyzed. Unit <decoder> generated.
 
 Analyzing Entity <alu> in library <work> (Architecture <behavioral>).
-WARNING:Xst:790 - "//vboxsrv/desktop/processor/alu.vhd" line 35: Index value(s) does not match array range, simulation mismatch.
-WARNING:Xst:2094 - "//vboxsrv/desktop/processor/alu.vhd" line 35: Default value is ignored for signal <holder>.
+WARNING:Xst:790 - "//vboxsrv/desktop/processor/alu.vhd" line 37: Index value(s) does not match array range, simulation mismatch.
 Entity <alu> analyzed. Unit <alu> generated.
 
 Analyzing Entity <Memory8x8> in library <work> (Architecture <behavioral>).
@@ -245,12 +242,13 @@ Unit <decoder> synthesized.
 
 Synthesizing Unit <alu>.
     Related source file is "//vboxsrv/desktop/processor/alu.vhd".
-WARNING:Xst:653 - Signal <holder> is used but never assigned. This sourceless signal will be automatically connected to value 0.
+    Found 1-bit 8-to-1 multiplexer for signal <holder>.
     Found 8-bit addsub for signal <Rd$addsub0000>.
     Found 8-bit shifter logical left for signal <Rd$shift0004> created at line 39.
     Found 8-bit shifter arithmetic right for signal <Rd$shift0005> created at line 39.
     Summary:
 	inferred   1 Adder/Subtractor(s).
+	inferred   1 Multiplexer(s).
 	inferred   2 Combinational logic shifter(s).
 Unit <alu> synthesized.
 
@@ -334,7 +332,8 @@ Macro Statistics
  8-bit comparator equal                                : 1
  8-bit comparator less                                 : 1
  8-bit comparator not equal                            : 1
-# Multiplexers                                         : 3
+# Multiplexers                                         : 4
+ 1-bit 8-to-1 multiplexer                              : 1
  4-bit 4-to-1 multiplexer                              : 1
  8-bit 8-to-1 multiplexer                              : 2
 # Logic shifters                                       : 2
@@ -393,8 +392,8 @@ Macro Statistics
  8-bit comparator equal                                : 1
  8-bit comparator less                                 : 1
  8-bit comparator not equal                            : 1
-# Multiplexers                                         : 17
- 1-bit 8-to-1 multiplexer                              : 16
+# Multiplexers                                         : 18
+ 1-bit 8-to-1 multiplexer                              : 17
  4-bit 4-to-1 multiplexer                              : 1
 # Logic shifters                                       : 2
  8-bit shifter arithmetic right                        : 1
@@ -424,7 +423,7 @@ Optimizing unit <proc_structure> ...
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block wrapper_proc_7seg, actual ratio is 16.
+Found area constraint ratio of 100 (+ 5) on block wrapper_proc_7seg, actual ratio is 17.
 
 Final Macro Processing ...
 
@@ -462,22 +461,21 @@ Design Statistics
 # IOs                              : 18
 
 Cell Usage :
-# BELS                             : 479
+# BELS                             : 488
 #      GND                         : 1
 #      INV                         : 3
 #      LUT1                        : 31
-#      LUT2                        : 17
-#      LUT2_D                      : 3
+#      LUT2                        : 23
+#      LUT2_D                      : 2
 #      LUT2_L                      : 1
-#      LUT3                        : 96
-#      LUT3_D                      : 1
-#      LUT3_L                      : 6
-#      LUT4                        : 124
+#      LUT3                        : 97
+#      LUT3_D                      : 4
+#      LUT4                        : 126
 #      LUT4_D                      : 10
-#      LUT4_L                      : 19
+#      LUT4_L                      : 23
 #      MUXCY                       : 61
-#      MUXF5                       : 41
-#      MUXF6                       : 16
+#      MUXF5                       : 40
+#      MUXF6                       : 17
 #      VCC                         : 1
 #      XORCY                       : 48
 # FlipFlops/Latches                : 107
@@ -499,9 +497,9 @@ Device utilization summary:
 
 Selected Device : 3s100ecp132-4 
 
- Number of Slices:                      164  out of    960    17%  
+ Number of Slices:                      165  out of    960    17%  
  Number of Slice Flip Flops:            107  out of   1920     5%  
- Number of 4 input LUTs:                311  out of   1920    16%  
+ Number of 4 input LUTs:                320  out of   1920    16%  
  Number of IOs:                          18
  Number of bonded IOBs:                  18  out of     83    21%  
  Number of BRAMs:                         1  out of      4    25%  
@@ -546,10 +544,10 @@ Timing Summary:
 ---------------
 Speed Grade: -4
 
-   Minimum period: 15.011ns (Maximum Frequency: 66.618MHz)
-   Minimum input arrival time before clock: 13.829ns
-   Maximum output required time after clock: 18.002ns
-   Maximum combinational path delay: 16.820ns
+   Minimum period: 14.994ns (Maximum Frequency: 66.693MHz)
+   Minimum input arrival time before clock: 13.812ns
+   Maximum output required time after clock: 17.985ns
+   Maximum combinational path delay: 16.803ns
 
 Timing Detail:
 --------------
@@ -609,10 +607,10 @@ Delay:               3.023ns (Levels of Logic = 1)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'btn'
-  Clock period: 15.011ns (frequency: 66.618MHz)
-  Total number of paths / destination ports: 74603 / 152
+  Clock period: 14.994ns (frequency: 66.693MHz)
+  Total number of paths / destination ports: 81515 / 152
 -------------------------------------------------------------------------
-Delay:               15.011ns (Levels of Logic = 21)
+Delay:               14.994ns (Levels of Logic = 21)
   Source:            Inst_top_processor/Program_Register/Mrom_instruction_rom0000 (RAM)
   Destination:       Inst_top_processor/Program_Counter/curnum_7 (FF)
   Source Clock:      btn rising
@@ -626,14 +624,14 @@ Delay:               15.011ns (Levels of Logic = 21)
      LUT3:I2->O           10   0.704   0.917  Inst_top_processor/Rs1_address<0>1 (Inst_top_processor/Rs1_address<0>)
      LUT3:I2->O            1   0.704   0.000  Inst_top_processor/Register_File/mux3_6 (Inst_top_processor/Register_File/mux3_6)
      MUXF5:I0->O           1   0.321   0.000  Inst_top_processor/Register_File/mux3_4_f5 (Inst_top_processor/Register_File/mux3_4_f5)
-     MUXF6:I0->O          14   0.521   1.079  Inst_top_processor/Register_File/mux3_2_f6 (Rs1_out<3>)
+     MUXF6:I0->O          13   0.521   1.062  Inst_top_processor/Register_File/mux3_2_f6 (Rs1_out<3>)
      LUT2:I1->O            1   0.704   0.000  Inst_top_processor/Decode_Unit/Mcompar_branch_cmp_lt0000_lut<3> (Inst_top_processor/Decode_Unit/Mcompar_branch_cmp_lt0000_lut<3>)
      MUXCY:S->O            1   0.464   0.000  Inst_top_processor/Decode_Unit/Mcompar_branch_cmp_lt0000_cy<3> (Inst_top_processor/Decode_Unit/Mcompar_branch_cmp_lt0000_cy<3>)
      MUXCY:CI->O           1   0.059   0.000  Inst_top_processor/Decode_Unit/Mcompar_branch_cmp_lt0000_cy<4> (Inst_top_processor/Decode_Unit/Mcompar_branch_cmp_lt0000_cy<4>)
      MUXCY:CI->O           1   0.059   0.000  Inst_top_processor/Decode_Unit/Mcompar_branch_cmp_lt0000_cy<5> (Inst_top_processor/Decode_Unit/Mcompar_branch_cmp_lt0000_cy<5>)
      MUXCY:CI->O           1   0.059   0.000  Inst_top_processor/Decode_Unit/Mcompar_branch_cmp_lt0000_cy<6> (Inst_top_processor/Decode_Unit/Mcompar_branch_cmp_lt0000_cy<6>)
      MUXCY:CI->O           3   0.459   0.706  Inst_top_processor/Decode_Unit/Mcompar_branch_cmp_lt0000_cy<7> (Inst_top_processor/Decode_Unit/Mcompar_branch_cmp_lt0000_cy<7>)
-     LUT4:I0->O            1   0.704   0.000  Inst_top_processor/Decode_Unit/branch_F (N110)
+     LUT4:I0->O            1   0.704   0.000  Inst_top_processor/Decode_Unit/branch_F (N109)
      MUXF5:I0->O           8   0.321   0.761  Inst_top_processor/Decode_Unit/branch (Inst_top_processor/branch)
      LUT4:I3->O            1   0.704   0.000  Inst_top_processor/Program_Counter/Maccum_curnum_lut<0> (Inst_top_processor/Program_Counter/Maccum_curnum_lut<0>)
      MUXCY:S->O            1   0.464   0.000  Inst_top_processor/Program_Counter/Maccum_curnum_cy<0> (Inst_top_processor/Program_Counter/Maccum_curnum_cy<0>)
@@ -646,14 +644,14 @@ Delay:               15.011ns (Levels of Logic = 21)
      XORCY:CI->O           1   0.804   0.000  Inst_top_processor/Program_Counter/Maccum_curnum_xor<7> (Inst_top_processor/Program_Counter/Result<7>)
      FDRE:D                    0.308          Inst_top_processor/Program_Counter/curnum_7
     ----------------------------------------
-    Total                     15.011ns (10.513ns logic, 4.498ns route)
-                                       (70.0% logic, 30.0% route)
+    Total                     14.994ns (10.513ns logic, 4.481ns route)
+                                       (70.1% logic, 29.9% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'btn'
-  Total number of paths / destination ports: 38312 / 152
+  Total number of paths / destination ports: 42840 / 152
 -------------------------------------------------------------------------
-Offset:              13.829ns (Levels of Logic = 22)
+Offset:              13.812ns (Levels of Logic = 22)
   Source:            reg_no<0> (PAD)
   Destination:       Inst_top_processor/Program_Counter/curnum_7 (FF)
   Destination Clock: btn rising
@@ -666,14 +664,14 @@ Offset:              13.829ns (Levels of Logic = 22)
      LUT3:I0->O           10   0.704   0.917  Inst_top_processor/Rs1_address<0>1 (Inst_top_processor/Rs1_address<0>)
      LUT3:I2->O            1   0.704   0.000  Inst_top_processor/Register_File/mux3_6 (Inst_top_processor/Register_File/mux3_6)
      MUXF5:I0->O           1   0.321   0.000  Inst_top_processor/Register_File/mux3_4_f5 (Inst_top_processor/Register_File/mux3_4_f5)
-     MUXF6:I0->O          14   0.521   1.079  Inst_top_processor/Register_File/mux3_2_f6 (Rs1_out<3>)
+     MUXF6:I0->O          13   0.521   1.062  Inst_top_processor/Register_File/mux3_2_f6 (Rs1_out<3>)
      LUT2:I1->O            1   0.704   0.000  Inst_top_processor/Decode_Unit/Mcompar_branch_cmp_lt0000_lut<3> (Inst_top_processor/Decode_Unit/Mcompar_branch_cmp_lt0000_lut<3>)
      MUXCY:S->O            1   0.464   0.000  Inst_top_processor/Decode_Unit/Mcompar_branch_cmp_lt0000_cy<3> (Inst_top_processor/Decode_Unit/Mcompar_branch_cmp_lt0000_cy<3>)
      MUXCY:CI->O           1   0.059   0.000  Inst_top_processor/Decode_Unit/Mcompar_branch_cmp_lt0000_cy<4> (Inst_top_processor/Decode_Unit/Mcompar_branch_cmp_lt0000_cy<4>)
      MUXCY:CI->O           1   0.059   0.000  Inst_top_processor/Decode_Unit/Mcompar_branch_cmp_lt0000_cy<5> (Inst_top_processor/Decode_Unit/Mcompar_branch_cmp_lt0000_cy<5>)
      MUXCY:CI->O           1   0.059   0.000  Inst_top_processor/Decode_Unit/Mcompar_branch_cmp_lt0000_cy<6> (Inst_top_processor/Decode_Unit/Mcompar_branch_cmp_lt0000_cy<6>)
      MUXCY:CI->O           3   0.459   0.706  Inst_top_processor/Decode_Unit/Mcompar_branch_cmp_lt0000_cy<7> (Inst_top_processor/Decode_Unit/Mcompar_branch_cmp_lt0000_cy<7>)
-     LUT4:I0->O            1   0.704   0.000  Inst_top_processor/Decode_Unit/branch_F (N110)
+     LUT4:I0->O            1   0.704   0.000  Inst_top_processor/Decode_Unit/branch_F (N109)
      MUXF5:I0->O           8   0.321   0.761  Inst_top_processor/Decode_Unit/branch (Inst_top_processor/branch)
      LUT4:I3->O            1   0.704   0.000  Inst_top_processor/Program_Counter/Maccum_curnum_lut<0> (Inst_top_processor/Program_Counter/Maccum_curnum_lut<0>)
      MUXCY:S->O            1   0.464   0.000  Inst_top_processor/Program_Counter/Maccum_curnum_cy<0> (Inst_top_processor/Program_Counter/Maccum_curnum_cy<0>)
@@ -686,8 +684,8 @@ Offset:              13.829ns (Levels of Logic = 22)
      XORCY:CI->O           1   0.804   0.000  Inst_top_processor/Program_Counter/Maccum_curnum_xor<7> (Inst_top_processor/Program_Counter/Result<7>)
      FDRE:D                    0.308          Inst_top_processor/Program_Counter/curnum_7
     ----------------------------------------
-    Total                     13.829ns (8.931ns logic, 4.898ns route)
-                                       (64.6% logic, 35.4% route)
+    Total                     13.812ns (8.931ns logic, 4.881ns route)
+                                       (64.7% logic, 35.3% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'Inst_seven_seg_multiplex/Inst_sig_gen/clk_sig'
@@ -715,7 +713,7 @@ Offset:              8.070ns (Levels of Logic = 4)
 Timing constraint: Default OFFSET OUT AFTER for Clock 'btn'
   Total number of paths / destination ports: 4368 / 7
 -------------------------------------------------------------------------
-Offset:              18.002ns (Levels of Logic = 15)
+Offset:              17.985ns (Levels of Logic = 15)
   Source:            Inst_top_processor/Program_Register/Mrom_instruction_rom0000 (RAM)
   Destination:       seg<6> (PAD)
   Source Clock:      btn rising
@@ -728,7 +726,7 @@ Offset:              18.002ns (Levels of Logic = 15)
      LUT3:I2->O           10   0.704   0.917  Inst_top_processor/Rs1_address<0>1 (Inst_top_processor/Rs1_address<0>)
      LUT3:I2->O            1   0.704   0.000  Inst_top_processor/Register_File/mux3_6 (Inst_top_processor/Register_File/mux3_6)
      MUXF5:I0->O           1   0.321   0.000  Inst_top_processor/Register_File/mux3_4_f5 (Inst_top_processor/Register_File/mux3_4_f5)
-     MUXF6:I0->O          14   0.521   1.079  Inst_top_processor/Register_File/mux3_2_f6 (Rs1_out<3>)
+     MUXF6:I0->O          13   0.521   1.062  Inst_top_processor/Register_File/mux3_2_f6 (Rs1_out<3>)
      LUT2:I1->O            1   0.704   0.000  Inst_top_processor/Decode_Unit/Mcompar_branch_cmp_lt0000_lut<3> (Inst_top_processor/Decode_Unit/Mcompar_branch_cmp_lt0000_lut<3>)
      MUXCY:S->O            1   0.464   0.000  Inst_top_processor/Decode_Unit/Mcompar_branch_cmp_lt0000_cy<3> (Inst_top_processor/Decode_Unit/Mcompar_branch_cmp_lt0000_cy<3>)
      MUXCY:CI->O           1   0.059   0.000  Inst_top_processor/Decode_Unit/Mcompar_branch_cmp_lt0000_cy<4> (Inst_top_processor/Decode_Unit/Mcompar_branch_cmp_lt0000_cy<4>)
@@ -741,14 +739,14 @@ Offset:              18.002ns (Levels of Logic = 15)
      LUT4:I0->O            1   0.704   0.420  Inst_seven_seg_multiplex/Inst_hex_to_7seg/Mrom_seven_seg_output61 (seg_6_OBUF)
      OBUF:I->O                 3.272          seg_6_OBUF (seg<6>)
     ----------------------------------------
-    Total                     18.002ns (12.559ns logic, 5.443ns route)
+    Total                     17.985ns (12.559ns logic, 5.426ns route)
                                        (69.8% logic, 30.2% route)
 
 =========================================================================
 Timing constraint: Default path analysis
   Total number of paths / destination ports: 3262 / 7
 -------------------------------------------------------------------------
-Delay:               16.820ns (Levels of Logic = 16)
+Delay:               16.803ns (Levels of Logic = 16)
   Source:            reg_no<0> (PAD)
   Destination:       seg<6> (PAD)
 
@@ -760,7 +758,7 @@ Delay:               16.820ns (Levels of Logic = 16)
      LUT3:I0->O           10   0.704   0.917  Inst_top_processor/Rs1_address<0>1 (Inst_top_processor/Rs1_address<0>)
      LUT3:I2->O            1   0.704   0.000  Inst_top_processor/Register_File/mux3_6 (Inst_top_processor/Register_File/mux3_6)
      MUXF5:I0->O           1   0.321   0.000  Inst_top_processor/Register_File/mux3_4_f5 (Inst_top_processor/Register_File/mux3_4_f5)
-     MUXF6:I0->O          14   0.521   1.079  Inst_top_processor/Register_File/mux3_2_f6 (Rs1_out<3>)
+     MUXF6:I0->O          13   0.521   1.062  Inst_top_processor/Register_File/mux3_2_f6 (Rs1_out<3>)
      LUT2:I1->O            1   0.704   0.000  Inst_top_processor/Decode_Unit/Mcompar_branch_cmp_lt0000_lut<3> (Inst_top_processor/Decode_Unit/Mcompar_branch_cmp_lt0000_lut<3>)
      MUXCY:S->O            1   0.464   0.000  Inst_top_processor/Decode_Unit/Mcompar_branch_cmp_lt0000_cy<3> (Inst_top_processor/Decode_Unit/Mcompar_branch_cmp_lt0000_cy<3>)
      MUXCY:CI->O           1   0.059   0.000  Inst_top_processor/Decode_Unit/Mcompar_branch_cmp_lt0000_cy<4> (Inst_top_processor/Decode_Unit/Mcompar_branch_cmp_lt0000_cy<4>)
@@ -773,20 +771,20 @@ Delay:               16.820ns (Levels of Logic = 16)
      LUT4:I0->O            1   0.704   0.420  Inst_seven_seg_multiplex/Inst_hex_to_7seg/Mrom_seven_seg_output61 (seg_6_OBUF)
      OBUF:I->O                 3.272          seg_6_OBUF (seg<6>)
     ----------------------------------------
-    Total                     16.820ns (10.977ns logic, 5.843ns route)
+    Total                     16.803ns (10.977ns logic, 5.826ns route)
                                        (65.3% logic, 34.7% route)
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 9.00 secs
-Total CPU time to Xst completion: 9.08 secs
+Total REAL time to Xst completion: 11.00 secs
+Total CPU time to Xst completion: 10.61 secs
  
 --> 
 
-Total memory usage is 283440 kilobytes
+Total memory usage is 284080 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   12 (   0 filtered)
+Number of warnings :    8 (   0 filtered)
 Number of infos    :    4 (   0 filtered)
 

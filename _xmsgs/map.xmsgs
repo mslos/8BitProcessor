@@ -11,8 +11,7 @@
 <msg type="info" file="LIT" num="244" delta="old" >All of the single ended outputs in this design are using slew rate limited output drivers. The delay on speed critical single ended outputs can be dramatically reduced by designating them as fast outputs.
 </msg>
 
-<msg type="warning" file="Pack" num="266" delta="old" >The function generator <arg fmt="%s" index="1">Inst_top_processor/ALU_instance/Rd_shift0003&lt;7&gt;1</arg> failed to merge with F5 multiplexer <arg fmt="%s" index="2">Inst_top_processor/ALU_instance/Rd&lt;7&gt;131_f5</arg>.  <arg fmt="%z" index="3">There is a conflict for the FXMUX.</arg>  The design will exhibit suboptimal timing.
+<msg type="warning" file="Pack" num="266" delta="old" >The function generator <arg fmt="%s" index="1">Inst_top_processor/ALU_instance/Mmux_holder_5</arg> failed to merge with F5 multiplexer <arg fmt="%s" index="2">Inst_top_processor/ALU_instance/Mmux_holder_3_f5</arg>.  <arg fmt="%z" index="3">There is a conflict for the GYMUX.</arg>  The design will exhibit suboptimal timing.
 </msg>
 
 </messages>
-

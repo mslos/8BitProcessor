@@ -5,19 +5,7 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="Xst" num="790" delta="old" >&quot;<arg fmt="%s" index="1">//vboxsrv/desktop/processor/alu.vhd</arg>&quot; line <arg fmt="%d" index="2">35</arg>: Index value(s) does not match array range, simulation mismatch.
-</msg>
-
-<msg type="warning" file="Xst" num="2094" delta="old" >&quot;<arg fmt="%s" index="1">//vboxsrv/desktop/processor/alu.vhd</arg>&quot; line <arg fmt="%d" index="2">35</arg>: Default value is ignored for signal &lt;<arg fmt="%s" index="3">holder</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="790" delta="old" >&quot;<arg fmt="%s" index="1">//vboxsrv/desktop/processor/alu.vhd</arg>&quot; line <arg fmt="%d" index="2">35</arg>: Index value(s) does not match array range, simulation mismatch.
-</msg>
-
-<msg type="warning" file="Xst" num="2094" delta="old" >&quot;<arg fmt="%s" index="1">//vboxsrv/desktop/processor/alu.vhd</arg>&quot; line <arg fmt="%d" index="2">35</arg>: Default value is ignored for signal &lt;<arg fmt="%s" index="3">holder</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="653" delta="old" >Signal &lt;<arg fmt="%s" index="1">holder</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">0</arg>.
+<msg type="warning" file="Xst" num="790" delta="old" >&quot;<arg fmt="%s" index="1">//vboxsrv/desktop/processor/alu.vhd</arg>&quot; line <arg fmt="%d" index="2">37</arg>: Index value(s) does not match array range, simulation mismatch.
 </msg>
 
 <msg type="warning" file="Xst" num="646" delta="old" >Signal &lt;<arg fmt="%s" index="1">slow_clk</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.

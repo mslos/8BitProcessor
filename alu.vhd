@@ -32,9 +32,9 @@ entity alu is
 end alu;
 
 architecture Behavioral of alu is
-signal holder : std_logic := (Rs1(to_integer(unsigned(offset))));
+signal holder : std_logic;
 begin
-
+holder <= Rs1(to_integer(unsigned(offset)));
 
 	with opcode select Rd <=
 			(Rs1+Rs2) when "0000", -- Addition
