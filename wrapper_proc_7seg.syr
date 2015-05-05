@@ -3,14 +3,14 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.29 secs
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.14 secs
  
 --> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.29 secs
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.15 secs
  
 --> Reading design: wrapper_proc_7seg.prj
 
@@ -107,12 +107,12 @@ Slice Utilization Ratio Delta      : 5
 Compiling vhdl file "//vboxsrv/desktop/processor/sign_gen.vhd" in Library work.
 Architecture behavioral of Entity sig_gen is up to date.
 Compiling vhdl file "//vboxsrv/desktop/processor/hex_to_7seg.vhd" in Library work.
-Entity <hex_to_7seg> compiled.
-Entity <hex_to_7seg> (Architecture <behavioral>) compiled.
+Architecture behavioral of Entity hex_to_7seg is up to date.
 Compiling vhdl file "//vboxsrv/desktop/processor/ProgramCounter.vhd" in Library work.
 Architecture behavioral of Entity programcounter is up to date.
 Compiling vhdl file "//vboxsrv/desktop/processor/RAM256.vhd" in Library work.
-Architecture behavioral of Entity rom256 is up to date.
+Entity <rom256> compiled.
+Entity <rom256> (Architecture <behavioral>) compiled.
 Compiling vhdl file "//vboxsrv/desktop/processor/decoder.vhd" in Library work.
 Architecture behavioral of Entity decoder is up to date.
 Compiling vhdl file "//vboxsrv/desktop/processor/alu.vhd" in Library work.
@@ -221,7 +221,7 @@ Unit <ProgramCounter> synthesized.
 
 Synthesizing Unit <ROM256>.
     Related source file is "//vboxsrv/desktop/processor/RAM256.vhd".
-    Found 256x16-bit ROM for signal <instruction$rom0000> created at line 101.
+    Found 256x16-bit ROM for signal <instruction$rom0000> created at line 104.
     Found 16-bit register for signal <instruction>.
     Summary:
 	inferred   1 ROM(s).
@@ -772,12 +772,12 @@ Delay:               18.630ns (Levels of Logic = 13)
 =========================================================================
 
 
-Total REAL time to Xst completion: 14.00 secs
-Total CPU time to Xst completion: 13.99 secs
+Total REAL time to Xst completion: 7.00 secs
+Total CPU time to Xst completion: 7.66 secs
  
 --> 
 
-Total memory usage is 284080 kilobytes
+Total memory usage is 284592 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :    9 (   0 filtered)
