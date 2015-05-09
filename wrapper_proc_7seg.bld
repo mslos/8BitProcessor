@@ -31,6 +31,6 @@ Total memory usage is 160848 kilobytes
 
 Writing NGD file "wrapper_proc_7seg.ngd" ...
 Total REAL time to NGDBUILD completion:  4 sec
-Total CPU time to NGDBUILD completion:   3 sec
+Total CPU time to NGDBUILD completion:   2 sec
 
 Writing NGDBUILD log file "wrapper_proc_7seg.bld"...
